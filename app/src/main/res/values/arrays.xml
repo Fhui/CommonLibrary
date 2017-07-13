@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="recycle_list">
+
+        <item>About Network</item>
+        <item>Retrofit</item>
+        <item>OkHttp</item>
+        <item>NoHttp</item>
+        <item>About UI</item>
+        <item>Contacts</item>
+        <item>Progress</item>
+        <item>PopupWindow</item>
+        <item>Dialog</item>
+        <item>EasyRecycleView</item>
+        <item>MarginDesign</item>
+        <item>Notification</item>
+        <item>About Library</item>
+        <item>RXJava</item>
+        <item>MVP</item>
+        <item>MVVM</item>
+        <item>About New Technology</item>
+        <item>Kotlin</item>
+        <item>Weex</item>
+        <item>React Native</item>
+
+    </array>
+
+    <array name="fragment_name">
+        <item>com.example.huifeng.library.fragment.RetrofitFragment</item>
+        <item>com.example.huifeng.library.fragment.OkHttpFragment</item>
+        <item>com.example.huifeng.library.fragment.NoHttpFragment</item>
+        <item>com.example.huifeng.library.fragment.ContactsFragment</item>
+        <item>com.example.huifeng.library.fragment.ProgressFragment</item>
+    </array>
+
+</resources>

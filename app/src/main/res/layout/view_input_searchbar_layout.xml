@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rel_serach"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimen_dp30"
+                android:background="@drawable/common_search_bg_shape">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/common_dimen_dp11"
+            android:layout_height="@dimen/common_dimen_dp11"
+            android:layout_gravity="center"
+            android:src="@mipmap/input_search"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/common_dimen_dp6"
+            android:text="search"
+            android:textColor="@color/common_color_c9_999999"
+            android:textSize="@dimen/common_dimen_s8_dp12"/>
+
+    </LinearLayout>
+</RelativeLayout>

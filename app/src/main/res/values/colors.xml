@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="common_bg">#f6f6f6</color>
+    <color name="common_color_c1_0971ce">#0971ce</color>
+    <color name="common_color_c2_ffa409">#ffa409</color>
+    <color name="common_color_c3_ff910b">#ff910b</color>
+    <color name="common_color_c4_ff1f1f">#ff1f1f</color>
+    <color name="common_color_c5_ffffff">#fff</color>
+    <color name="common_color_c6_000000">#000</color>
+    <color name="common_color_c7_333333">#333</color>
+    <color name="common_color_c8_666666">#666</color>
+    <color name="common_color_c9_999999">#999</color>
+    <color name="common_color_c10_b8b8b8">#b8b8b8</color>
+    <color name="common_color_c11_cccccc">#ccc</color>
+    <color name="common_color_c12_dcdcdc">#dcdcdc</color>
+    <color name="common_color_c13_ececec">#ececec</color>
+    <color name="common_color_c14_e5e9ee">#e5e9ee</color>
+    <color name="common_color_c1cur_0869c2">#0869c2</color>
+    <color name="common_color_c3cur_f0880a">#f0880a</color>
+
+    <color name="common_color_bcc6d2">#bcc6d2</color>
+    <color name="common_color_ff4200">#ff4200</color>
+    <color name="common_color_ff6000">#ff6000</color>
+    <color name="common_color_dd2727">#dd2727</color>
+
+    <color name="common_btn_color_FF9138">#FF9138</color>
+    <color name="common_btn_color_F2A833">#F2A833</color>
+    <color name="common_btn_color_30F2A833">#30F2A833</color>
+    <color name="common_btn_color_F28D35">#F28D35</color>
+    <color name="common_btn_color_30DCDCDC">#30DCDCDC</color>
+    <color name="common_btn_color_FFB136">#FFB136</color>
+    <color name="common_btn_color_30FFB136">#30FFB136</color>
+    <color name="common_btn_color_0b83ee">#0b83ee</color>
+    <color name="common_btn_color_0971ce">#0971ce</color>
+    <color name="common_btn_color_0869c2">#0869c2</color>
+    <color name="common_btn_color_007ae2">#007ae2</color>
+
+
+    <color name="common_color_c2c7cd">#c2c7cd</color>
+
+    <!--按键不可点击状态颜色-->
+    <color name="common_btn_color_55ffffff">#55FFFFFF</color>
+
+    <!--Search C13 80%不透明度-->
+    <color name="common_color_search_ececec">#ccececec</color>
+    <!-- ImageView 背景 C13 40%不透明度 -->
+    <color name="common_color_upload_image_99ececec">#99ececec</color>
+    <!-- ProgressBar C6 15%不透明度 -->
+    <color name="common_color_upload_progress_21000000">#21000000</color>
+    <!-- Border C6 5%不透明度 -->
+    <color name="common_color_upload_border_f2000000">#f2000000</color>
+    <!-- ImageView 上传失败 C6 40%不透明度 -->
+    <color name="common_color_upload_fail_99000000">#99000000</color>
+    <!-- Top Bar C7 不透明度90% -->
+    <color name="common_color_upload_edit_1A333333">#1A333333</color>
+
+    <!--
+        颜色值透明度查询(不透明度要用100%减)
+        透明度	数值
+        100%	FF
+        95%	    F2
+        90%	    E6
+        85%	    D9
+        80%	    CC
+        75%	    BF
+        70%	    B3
+        65%	    A6
+        60%	    99
+        55%	    8C
+        50%	    80
+        45%	    73
+        40%	    66
+        35%	    59
+        30%	    4D
+        25%	    40
+        20%	    33
+        15%	    26
+        10%	    1A
+        5%	    0D
+        0%	    00
+    -->
+
+</resources>

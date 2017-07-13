@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rel_input"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_dimen_dp30"
+                android:background="@drawable/common_search_bg_shape"
+    >
+
+    <ImageView
+        android:id="@+id/iv_search"
+        android:layout_width="@dimen/common_dimen_dp11"
+        android:layout_height="@dimen/common_dimen_dp11"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/common_dimen_s8_dp12"
+        android:src="@mipmap/input_search"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/common_dimen_dp5"
+        android:layout_marginRight="@dimen/common_dimen_dp9"
+        android:layout_toRightOf="@+id/iv_search"
+        android:orientation="horizontal"
+        >
+
+        <com.example.huifeng.library.custom_widget.ClearEditText
+            android:id="@+id/et_serach"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:textColor="@color/common_color_c7_333333"
+            android:textSize="@dimen/common_dimen_s7_dp14"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleProgressView">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="progressColor" format="color"/>
+        <attr name="circleTextColor" format="color"/>
+        <attr name="circleTextSize" format="dimension"/>
+        <attr name="circleText" format="string"/>
+        <attr name="progressStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="customDesc" value="1"/>
+            <enum name="noBackGround" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="section_bar">
+        <attr name="android:textSize"/>
+        <attr name="android:textColor"/>
+        <attr name="section_chooseTextColor" format="color"/>
+        <attr name="section_backgroundColor" format="color"/>
+        <attr name="section_chooseBackgroundColor" format="color"/>
+    </declare-styleable>
+
+</resources>
