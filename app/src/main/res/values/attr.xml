@@ -22,4 +22,12 @@
         <attr name="section_chooseBackgroundColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="HorizontalProgressView">
+        <attr format="enum" name="progressTextPosition">
+            <enum name="RIGHT_TOP" value="1"/>
+            <enum name="FOLLOW" value="-1"/>
+            <enum name="RIGHT" value="0"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

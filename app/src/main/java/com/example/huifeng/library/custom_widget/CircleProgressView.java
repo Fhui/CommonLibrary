@@ -12,7 +12,7 @@ import com.example.huifeng.library.R;
 import com.example.huifeng.library.utils.ConvertUtils;
 
 /**
- *  圆形进度条
+ * 圆形进度条
  * Created by ShineF on 2017/7/10 0010.
  */
 
@@ -33,9 +33,10 @@ public class CircleProgressView extends ProgressBar {
 
     private final int mDefaultBgColor = getResources().getColor(R.color.common_color_c13_ececec);
     private final int mDefaultProgColor = getResources().getColor(R.color.common_color_c1cur_0869c2);
-    private final int mDefaultTextColor = getResources().getColor(R.color.common_color_c1cur_0869c2);
-    private final int mDefaultTextSize = 26;
-    private final int mDefaultSymbolTextSize = 26;
+    private final int mDefaultTextColor = getResources().getColor(R.color.common_color_c6_000000);
+    private final int mDefaultTextSize = 20;
+    private final int mDefaultSymbolTextSize = 12;
+    private final int mDefaultDesTextSize = 12;
     private int mStrokeWidth = 0;
     private int mDefaultRadius = 0;
     private int mRadius = 0;
@@ -58,7 +59,7 @@ public class CircleProgressView extends ProgressBar {
         initData();
     }
 
-    public void init(Context context, AttributeSet attrs){
+    public void init(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressView);
         mBgColor = typedArray.getColor(R.styleable.CircleProgressView_backgroundColor, mDefaultBgColor);
         mProColor = typedArray.getColor(R.styleable.CircleProgressView_circleTextColor, mDefaultProgColor);
@@ -69,12 +70,12 @@ public class CircleProgressView extends ProgressBar {
         typedArray.recycle();
     }
 
-    public void initData(){
+    public void initData() {
         mStrokeWidth = ConvertUtils.dip2px(getContext(), DEFAULT_STROKE_WIDTH);
         mBgPaint = createPaint(mBgColor, Paint.Style.STROKE, mStrokeWidth);
         mTextPaint = createTextPaint(mTextColor, mTextSize);
-        mDescPaint = createTextPaint(mDefaultTextColor, ConvertUtils.dip2px(getContext(), mDefaultTextSize));
-        switch (mProgStyle){
+        mDescPaint = createTextPaint(mDefaultTextColor, ConvertUtils.dip2px(getContext(), mDefaultDesTextSize));
+        switch (mProgStyle) {
             case PROGRESS_STYLE_NORMAL:
                 mProgressPaint = createNotRoundPaint(mProColor, Paint.Style.STROKE, mStrokeWidth);
                 break;
@@ -87,8 +88,8 @@ public class CircleProgressView extends ProgressBar {
         }
     }
 
-    public Paint createPaint(int paintColor, Paint.Style style, int width){
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG|Paint.DITHER_FLAG);
+    public Paint createPaint(int paintColor, Paint.Style style, int width) {
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
         paint.setColor(paintColor);
         paint.setStrokeWidth(width);
         paint.setStyle(style);
@@ -114,20 +115,20 @@ public class CircleProgressView extends ProgressBar {
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mDefaultRadius = Math.min(getMeasuredWidth(),  getMeasuredWidth())/ 2 - mStrokeWidth / 2;
+        mDefaultRadius = Math.min(getMeasuredWidth(), getMeasuredWidth()) / 2 - mStrokeWidth / 2;
     }
 
     @Override
     protected synchronized void onDraw(Canvas canvas) {
-        int width = getMeasuredWidth()/2;
-        int height = getMeasuredHeight()/2;
-        if(mRadius == 0 || mRadius > mDefaultRadius){
+        int width = getMeasuredWidth() / 2;
+        int height = getMeasuredHeight() / 2;
+        if (mRadius == 0 || mRadius > mDefaultRadius) {
             mRadius = mDefaultRadius;
         }
-        if(mRectF == null){
+        if (mRectF == null) {
             mRectF = new RectF(width - mRadius, height - mRadius, width + mRadius, height + mRadius);
         }
-        switch (mProgStyle){
+        switch (mProgStyle) {
             case PROGRESS_STYLE_NORMAL:
                 drawNormal(canvas, width, height);
                 break;
@@ -140,7 +141,8 @@ public class CircleProgressView extends ProgressBar {
         }
     }
 
-    public void drawNormal(Canvas canvas, int halfWidth, int halfHeight){
+    
+    public void drawNormal(Canvas canvas, int halfWidth, int halfHeight) {
         canvas.drawArc(mRectF, -90, 360, false, mBgPaint);
         float sweepAngle = getProgress() * 1.0f / getMax() * 360;
         canvas.drawArc(mRectF, -90, sweepAngle, false, mProgressPaint);
@@ -150,37 +152,36 @@ public class CircleProgressView extends ProgressBar {
         mTextPaint.setTextSize(ConvertUtils.dip2px(getContext(), mDefaultTextSize));
         float textWidth = mTextPaint.measureText(processText);
         float textHeight = mTextPaint.descent() + mTextPaint.ascent();
-        canvas.drawText(processText, halfWidth-textWidth / 2, halfHeight-textHeight / 2, mTextPaint);
-
+        canvas.drawText(processText, halfWidth - textWidth / 2, halfHeight - textHeight / 2, mTextPaint);
         mTextPaint.setTextSize(ConvertUtils.dip2px(getContext(), mDefaultSymbolTextSize));
-        float percentTextWidth = mTextPaint.measureText(mSignText);
-        float percentTextHeight = mTextPaint.descent() + mTextPaint.ascent();
-        canvas.drawText(mSignText, halfWidth+textWidth / 2, halfHeight-textHeight / 2, mTextPaint);
+        canvas.drawText(mSignText, halfWidth + textWidth / 2, halfHeight - textHeight / 2, mTextPaint);
+//        float percentTextWidth = mTextPaint.measureText(mSignText);
+//        float percentTextHeight = mTextPaint.descent() + mTextPaint.ascent();
     }
 
-    public void drawCustomDesc(Canvas canvas, int halfWidth, int halfHeight){
+    public void drawCustomDesc(Canvas canvas, int halfWidth, int halfHeight) {
 
         canvas.drawArc(mRectF, -90, 360, false, mBgPaint);
         float sweepAngle = getProgress() * 1.0f / getMax() * 360;
         canvas.drawArc(mRectF, -90, sweepAngle, false, mProgressPaint);
 
         int progress = (int) (getProgress() * 1.0f / getMax() * 100);
-        String processText = String.valueOf(progress) + mSignText;
+        String processText = String.valueOf(progress);
         mTextPaint.setTextSize(ConvertUtils.dip2px(getContext(), mDefaultTextSize));
         float textWidth = mTextPaint.measureText(processText);
         float textHeight = mTextPaint.descent() + mTextPaint.ascent();
-        canvas.drawText(processText, halfWidth-textWidth / 2, halfHeight-textHeight / 2, mTextPaint);
-
-        if(mText == null){
-            return;
-        }
-
         float descTextWidth = mDescPaint.measureText(mText);
         float descTextHeight = mDescPaint.descent() + mDescPaint.ascent();
-        canvas.drawText(mText, halfWidth - descTextWidth/2, halfHeight-descTextHeight/2*3, mDescPaint);
+        canvas.drawText(processText, halfWidth - textWidth / 2, halfHeight - textHeight / 2 + descTextHeight, mTextPaint);
+        mTextPaint.setTextSize(ConvertUtils.dip2px(getContext(), mDefaultSymbolTextSize));
+        canvas.drawText(mSignText, halfWidth + textWidth / 2, halfHeight - textHeight / 2 + descTextHeight, mTextPaint);
+        if (mText == null) {
+            return;
+        }
+        canvas.drawText(mText, halfWidth - descTextWidth / 2, halfHeight - descTextHeight / 2 * 5 + descTextHeight, mDescPaint);
     }
 
-    public void drawNoBackground(Canvas canvas, int halfWidth, int halfHeight){
+    public void drawNoBackground(Canvas canvas, int halfWidth, int halfHeight) {
         float sweepAngle = getProgress() * 1.0f / getMax() * 360;
         canvas.drawArc(mRectF, -90, sweepAngle, false, mProgressPaint);
     }

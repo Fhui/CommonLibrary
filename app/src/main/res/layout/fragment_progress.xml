@@ -6,11 +6,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <com.example.huifeng.library.custom_widget.CircleProgressView
-        android:id="@+id/circle_progress_view"
-        android:layout_width="100dp"
-        app:progressStyle="normal"
-        android:progress="68"
-        android:layout_height="100dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_dimen_dp10"
+        android:orientation="horizontal">
+
+        <com.example.huifeng.library.custom_widget.CircleProgressView
+            android:id="@+id/circle_progress_view"
+            android:layout_width="100dp"
+            app:progressStyle="normal"
+            android:progress="100"
+            android:layout_height="100dp"/>
+
+        <com.example.huifeng.library.custom_widget.CircleProgressView
+            android:id="@+id/circle_progress_view_no_background"
+            android:layout_width="100dp"
+            app:progressStyle="noBackGround"
+            android:layout_marginLeft="10dp"
+            android:progress="100"
+            android:layout_height="100dp"/>
+
+        <com.example.huifeng.library.custom_widget.CircleProgressView
+            android:id="@+id/circle_progress_view_custom_text"
+            android:layout_width="100dp"
+            app:progressStyle="customDesc"
+            app:circleText="加载数据"
+            android:layout_marginLeft="10dp"
+            app:circleTextSize="@dimen/common_dimen_dp2"
+            android:progress="100"
+            android:layout_height="100dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <com.example.huifeng.library.custom_widget.HorizontalProgressView
+        android:id="@+id/progress_follow"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:progress="100"
+        app:progressTextPosition="FOLLOW"
+        android:layout_marginTop="10dp"/>
+
+    <com.example.huifeng.library.custom_widget.HorizontalProgressView
+    android:id="@+id/progress_top"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:progress="100"
+    app:progressTextPosition="RIGHT_TOP"
+    android:layout_marginTop="10dp"/>
+
+    <com.example.huifeng.library.custom_widget.HorizontalProgressView
+        android:id="@+id/progress_right"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:progress="100"
+        app:progressTextPosition="RIGHT"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>
