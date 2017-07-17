@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--PopupWindow动画-->
+    <style name="anim_menu_top_bar">
+        <item name="android:windowEnterAnimation">@anim/menu_top_bar_in</item>
+        <item name="android:windowExitAnimation">@anim/menu_top_bar_out</item>
+    </style>
+
+    <style name="AnimHorizontal" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_left_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_left_out</item>
+    </style>
+
+    <style name="AnimRight" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
+    </style>
+
 </resources>

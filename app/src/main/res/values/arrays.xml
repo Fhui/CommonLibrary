@@ -32,6 +32,7 @@
         <item>com.example.huifeng.library.fragment.NoHttpFragment</item>
         <item>com.example.huifeng.library.fragment.ContactsFragment</item>
         <item>com.example.huifeng.library.fragment.ProgressFragment</item>
+        <item>com.example.huifeng.library.fragment.PopupWindowFragment</item>
     </array>
 
 </resources>
