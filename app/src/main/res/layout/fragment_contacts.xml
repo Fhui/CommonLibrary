@@ -47,6 +47,18 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
 
+        <TextView
+            android:id="@+id/tv_select_letters"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@color/common_color_c13_ececec"
+            android:text="A"
+            android:visibility="gone"
+            android:textSize="@dimen/common_dimen_dp20"
+            android:gravity="center"
+            android:textColor="@color/common_color_c1_0971ce"/>
+
     </RelativeLayout>
 
 </LinearLayout>

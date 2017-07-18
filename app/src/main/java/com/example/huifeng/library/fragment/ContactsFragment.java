@@ -15,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huifeng.library.MainActivity;
@@ -25,6 +26,7 @@ import com.example.huifeng.library.core.BaseFragment;
 import com.example.huifeng.library.custom_widget.ClearEditText;
 import com.example.huifeng.library.custom_widget.SectionBar;
 import com.example.huifeng.library.utils.ContactsUtils;
+import com.example.huifeng.library.utils.LogUtils;
 import com.example.huifeng.library.utils.PermissionUtils;
 import com.example.huifeng.library.utils.PinyinUtils;
 import com.example.huifeng.library.utils.ThreadUtils;
@@ -51,8 +53,12 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     RelativeLayout mRlInput;
     @BindView(R.id.sb_index)
     SectionBar mSectionBar = null;
+    @BindView(R.id.tv_select_letters)
+    TextView mTvSelectLetters;
     private final int QUARY_CONTACTS_OK = 1;
     private final int CHANGE_OK = 2;
+    private final int SHOWLETTERS = 3;
+    private final int HIDELETTERS = 4;
     private List<ContactsBean> mDataList;
     private ContactAdapter mAdapter;
     private Handler mHandler = new Handler(new Handler.Callback() {
@@ -69,6 +75,19 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
                 case CHANGE_OK:
                     List<ContactsBean> changeList = (List<ContactsBean>) msg.obj;
                     mAdapter.updataAdapter(changeList);
+                    break;
+                case SHOWLETTERS:
+                    String letters = (String) msg.obj;
+                    mTvSelectLetters.setText(letters);
+                    if (mTvSelectLetters.getVisibility() != View.VISIBLE) {
+                        mTvSelectLetters.setVisibility(View.VISIBLE);
+                    }
+                    mHandler.removeMessages(HIDELETTERS);
+                    mHandler.sendEmptyMessageDelayed(HIDELETTERS, 500);
+                    break;
+                case HIDELETTERS:
+                    mTvSelectLetters.setText("");
+                    mTvSelectLetters.setVisibility(View.GONE);
                     break;
             }
             return false;
@@ -207,6 +226,10 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     public void onTouchLetterChange(boolean isTouch, String letter) {
         int pos = mAdapter.getStartPositionOfSection(letter);
         mLvContacts.setSelection(pos);
+        Message msg = Message.obtain();
+        msg.obj = letter;
+        msg.what = SHOWLETTERS;
+        mHandler.sendMessage(msg);
     }
 
     @Override
