@@ -58,6 +58,10 @@
     <!-- Top Bar C7 不透明度90% -->
     <color name="common_color_upload_edit_1A333333">#1A333333</color>
 
+    <color name="warning_color">#f4511e</color>
+    <color name="hint_color">#42000000</color>
+    <color name="success_color">#009688</color>
+
     <!--
         颜色值透明度查询(不透明度要用100%减)
         透明度	数值

@@ -11,6 +11,7 @@
         <item>Contacts</item>
         <item>Progress</item>
         <item>PopupWindow</item>
+        <item>Fingerprint</item>
         <item>Dialog</item>
         <item>EasyRecycleView</item>
         <item>MarginDesign</item>
@@ -33,6 +34,7 @@
         <item>com.example.huifeng.library.fragment.ContactsFragment</item>
         <item>com.example.huifeng.library.fragment.ProgressFragment</item>
         <item>com.example.huifeng.library.fragment.PopupWindowFragment</item>
+        <item>com.example.huifeng.library.fragment.FingerprintFragment</item>
     </array>
 
 </resources>
