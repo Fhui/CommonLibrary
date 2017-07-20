@@ -23,6 +23,10 @@ import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {
 
+
+
+
+
     public View rootView;
 
     public Activity mContext;
@@ -39,7 +43,6 @@ public abstract class BaseFragment extends Fragment {
     public int setContentLayout() {
         return 0;
     }
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

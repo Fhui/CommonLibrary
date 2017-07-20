@@ -10,7 +10,18 @@
         android:layout_height="wrap_content"
         android:background="@color/common_color_c1_0971ce"
         android:layout_centerInParent="true"
-        android:text="fingerprint"
+        android:text="对称加密"
+        android:textColor="@color/common_color_c5_ffffff"/>
+
+    <Button
+        android:id="@+id/btn_fingerprint_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/common_color_c1_0971ce"
+        android:layout_below="@id/btn_fingerprint"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="非对称加密"
         android:textColor="@color/common_color_c5_ffffff"/>
 
 </RelativeLayout>
