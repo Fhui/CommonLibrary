@@ -35,6 +35,16 @@
         <item>com.example.huifeng.library.fragment.ProgressFragment</item>
         <item>com.example.huifeng.library.fragment.PopupWindowFragment</item>
         <item>com.example.huifeng.library.fragment.FingerprintFragment</item>
+        <item>com.example.huifeng.library.fragment.DialogFragment</item>
+        <item>com.example.huifeng.library.fragment.EasyRecycleViewFragment</item>
+        <item>com.example.huifeng.library.fragment.MarginDesignFragment</item>
+        <item>com.example.huifeng.library.fragment.NotificationFragment</item>
+        <item>com.example.huifeng.library.fragment.RxJavaFragment</item>
+        <item>com.example.huifeng.library.fragment.MVPFragment</item>
+        <item>com.example.huifeng.library.fragment.MVVMFragment</item>
+        <item>com.example.huifeng.library.fragment.KotlinFragment</item>
+        <item>com.example.huifeng.library.fragment.WeexFragment</item>
+        <item>com.example.huifeng.library.fragment.ReactNativeFragment</item>
     </array>
 
 </resources>
