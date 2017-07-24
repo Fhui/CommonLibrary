@@ -17,6 +17,12 @@ public class DialogFragment extends BaseFragment {
     }
 
     @Override
+    public void init() {
+        super.init();
+        ((MainActivity) mContext).showReturn();
+    }
+
+    @Override
     public void setTitle() {
         ((MainActivity) mContext).setmTitleText("Dialog");
     }

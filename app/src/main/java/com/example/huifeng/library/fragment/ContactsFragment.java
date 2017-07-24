@@ -102,7 +102,6 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     @Override
     public void init() {
         super.init();
-        ((MainActivity) mContext).showReturn();
         PermissionUtils.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
         mLvContacts.setOnScrollListener(this);
         mEditText.addTextChangedListener(this);

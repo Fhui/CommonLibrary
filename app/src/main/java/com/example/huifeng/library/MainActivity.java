@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity {
 
 
     /**
-     * fragment 出栈
+     * fragment 入栈
      *
      * @param fragment
      */
@@ -74,6 +74,9 @@ public class MainActivity extends BaseActivity {
         fts.addToBackStack("BackStack");
         fts.commitAllowingStateLoss();
         mBackStack.push(fragment);
+        if(!(peekFragment() instanceof  DeskTopFragment)){
+            showReturn();
+        }
     }
 
     /**
@@ -87,6 +90,19 @@ public class MainActivity extends BaseActivity {
         ft.remove(pop);
         ft.commitAllowingStateLoss();
     }
+
+    /**
+     * 查看栈顶的fragment
+     * @return
+     */
+    public Fragment peekFragment() {
+        if (mBackStack.size() > 0) {
+            return mBackStack.peek();
+        }
+
+        return null;
+    }
+
 
     @Override
     public void onBackPressed() {

@@ -22,8 +22,6 @@
         <item>MVVM</item>
         <item>About New Technology</item>
         <item>Kotlin</item>
-        <item>Weex</item>
-        <item>React Native</item>
 
     </array>
 
@@ -43,8 +41,6 @@
         <item>com.example.huifeng.library.fragment.MVPFragment</item>
         <item>com.example.huifeng.library.fragment.MVVMFragment</item>
         <item>com.example.huifeng.library.fragment.KotlinFragment</item>
-        <item>com.example.huifeng.library.fragment.WeexFragment</item>
-        <item>com.example.huifeng.library.fragment.ReactNativeFragment</item>
     </array>
 
 </resources>

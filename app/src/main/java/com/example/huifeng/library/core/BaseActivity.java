@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.utils.SharedPreferencesHelper;
+import com.example.huifeng.library.utils.StatusBarTools;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,8 @@ public class BaseActivity extends AppCompatActivity {
         mContext = this;
         sp = MobileApplication.sp;
         ButterKnife.bind(this);
+        StatusBarTools.setTransparencyBar(this);
+        StatusBarTools.setStatusBarLightMode(this);
         init();
     }
 

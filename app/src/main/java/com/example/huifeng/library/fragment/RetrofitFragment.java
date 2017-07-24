@@ -81,7 +81,6 @@ public class RetrofitFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
-        ((MainActivity) mContext).showReturn();
     }
 
     @Override
