@@ -1,4 +1,7 @@
+@file:Suppress("IMPLICIT_CAST_TO_ANY")
+
 package com.example.kotlin_lib
+
 
 /**
  *  Kotlin Test
@@ -25,19 +28,58 @@ fun main(args: Array<String>) {
     //声明一个空数组
     emptyArray<Int>()
     //Array声明闭包操作
-    val arrays02 = Array(5, { i -> i*i })
+    val arrays02 = Array(5, { i -> i * i })
     for (i in 0..10) {
         arrays[i] = i
     }
     println("数组arrays的长度是${arrays.size}")
     //遍历数组
-    for(i in arrays02){
-        print("$i")
+    for (i in arrays02) {
+        println("$i")
     }
 
     //List 在 Kotlin 中是不可变的，创建后就不允许作任何修改操作。
     //创建一个空数组
     emptyList<Int>()
 
+    //流程表达式
+    val a: Int = 10
+    val b = if (a > 9) a else 0
+    println("输出的结果是:$b ")
+    val c = if (10 == b) "false" else b
+    println("输出Any类型:$c")
 
+    /**
+     * mutableMapOf可变map
+     * mapOf()不可变map
+     */
+    val muntableMap = mutableMapOf<String, String>()
+    for (i in 0..10) {
+        muntableMap.put("$i", "$i")
+    }
+    val map = mapOf("a" to 1, "B" to 2, "C" to 3, "D" to 4)
+    println("muntableMap:${muntableMap.size} \n  map的长度是:${map.size}")
+    //遍历map
+    for ((k, v) in map) {
+        println("$k ----> $v")
+    }
+
+    /**
+     * 自定义一个类
+     */
+    class Counter {
+        private val privateVal: Int = 10
+        val publicVal: Int = 0
+        var defaultVal: Int = 1
+
+        fun test(): Unit {
+            defaultVal = privateVal + publicVal
+        }
+
+        fun test02() = defaultVal
+    }
+
+    val counter = Counter()
+    println("${counter.test()} --> ${counter.test02()}")
 }
+
