@@ -81,5 +81,25 @@ fun main(args: Array<String>) {
 
     val counter = Counter()
     println("${counter.test()} --> ${counter.test02()}")
+
+    class Student {
+
+        private var name: String = ""
+
+         private var age : Int = 10
+
+        fun getName(): String = this.name
+
+        fun getAge() : Int = this.age
+
+        fun setName(name: String) {
+            this.name = name
+        }
+    }
+
+    val person = Student()
+    person.setName("Hua")
+    println("Student.getName ->  ${person.getName()}")
+
 }
 

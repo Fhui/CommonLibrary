@@ -3,6 +3,7 @@ package com.example.huifeng.library;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,11 +71,24 @@ public class MainActivity extends BaseActivity {
     public void pushFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
-        fts.replace(R.id.rl_content, fragment);
-        fts.addToBackStack("BackStack");
-        fts.commitAllowingStateLoss();
+        fts.replace(R.id.rl_content, fragment)
+                .addToBackStack("BackStack")
+                .commitAllowingStateLoss();
         mBackStack.push(fragment);
-        if(!(peekFragment() instanceof  DeskTopFragment)){
+        if (!(peekFragment() instanceof DeskTopFragment)) {
+            showReturn();
+        }
+    }
+
+    public void pushFragment(Fragment fragment, View view) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fts = fm.beginTransaction();
+        fts.addSharedElement(view, ViewCompat.getTransitionName(view))
+                .replace(R.id.rl_content, fragment)
+                .addToBackStack("BackStack")
+                .commitAllowingStateLoss();
+        mBackStack.push(fragment);
+        if (!(peekFragment() instanceof DeskTopFragment)) {
             showReturn();
         }
     }
@@ -93,6 +107,7 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 查看栈顶的fragment
+     *
      * @return
      */
     public Fragment peekFragment() {

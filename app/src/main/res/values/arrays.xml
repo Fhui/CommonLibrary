@@ -8,6 +8,7 @@
         <item>OkHttp</item>
         <item>NoHttp</item>
         <item>About UI</item>
+        <item>Shared Elements</item>
         <item>Contacts</item>
         <item>Progress</item>
         <item>PopupWindow</item>
@@ -29,6 +30,7 @@
         <item>com.example.huifeng.library.fragment.RetrofitFragment</item>
         <item>com.example.huifeng.library.fragment.OkHttpFragment</item>
         <item>com.example.huifeng.library.fragment.NoHttpFragment</item>
+        <item>com.example.huifeng.library.fragment.SharedElementsFragment</item>
         <item>com.example.huifeng.library.fragment.ContactsFragment</item>
         <item>com.example.huifeng.library.fragment.ProgressFragment</item>
         <item>com.example.huifeng.library.fragment.PopupWindowFragment</item>

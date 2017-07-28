@@ -1,5 +1,6 @@
 package com.example.huifeng.library.fragment;
 
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -78,7 +79,7 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
     public void clickItem(int position, View view, LibraryBean bean) {
         Fragment fragment = bean.getmFragment();
         if (fragment != null) {
-            pushFragment(fragment);
+            pushFragment(fragment, view);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.example.huifeng.library.fragment
 
+import android.widget.ListView
 import android.widget.TextView
-import butterknife.BindView
 import com.example.huifeng.library.MainActivity
 import com.example.huifeng.library.R
 import com.example.huifeng.library.core.BaseFragment
@@ -13,8 +13,8 @@ import com.example.huifeng.library.core.BaseFragment
 
 class KotlinFragment : BaseFragment() {
 
-    @BindView(R.id.tv_kotlin)
-    val mTvText : TextView ? = null
+    var mTvText : TextView ?= null
+    var mLvContent : ListView  ?= null
 
     override fun setContentLayout(): Int {
         return R.layout.fragment_kotlin
@@ -26,8 +26,7 @@ class KotlinFragment : BaseFragment() {
 
     override fun init() {
         super.init()
-//        mTvText.setText("adas")
+        mTvText = (mContext.findViewById(R.id.tv_kotlin) as TextView?)!!
+        (mTvText as TextView).text = "Hello, Kotlin"
     }
-
-
 }

@@ -72,6 +72,10 @@ public abstract class BaseFragment extends Fragment {
         ((MainActivity) mContext).pushFragment(fragment);
     }
 
+    public void pushFragment(Fragment fragment, View view) {
+        ((MainActivity) mContext).pushFragment(fragment, view);
+    }
+
     public void popFragment(){
         ((MainActivity) mContext).popFragment();
     }

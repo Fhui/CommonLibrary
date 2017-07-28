@@ -4,18 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/lv_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_shared_elements"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-    </ListView>
-
-    <TextView
-        android:id="@+id/tv_kotlin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"/>
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

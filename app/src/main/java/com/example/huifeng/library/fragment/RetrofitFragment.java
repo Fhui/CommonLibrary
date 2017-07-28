@@ -1,6 +1,7 @@
 package com.example.huifeng.library.fragment;
 
 import android.support.annotation.NonNull;
+import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -81,6 +82,9 @@ public class RetrofitFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
+        setSharedElementEnterTransition(
+                TransitionInflater.from(getContext())
+                        .inflateTransition(android.R.transition.move));
     }
 
     @Override

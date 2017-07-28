@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,10 +24,11 @@
                 android:id="@+id/tv_item"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:gravity="center"
+                android:layout_centerInParent="true"
                 android:background="@color/common_color_ff4200"
+                android:gravity="center"
                 android:textColor="@color/common_color_c5_ffffff"
-                android:layout_centerInParent="true"/>
+                android:transitionName="simple transition name"/>
 
         </RelativeLayout>
 
