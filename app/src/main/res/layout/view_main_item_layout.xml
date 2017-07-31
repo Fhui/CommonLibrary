@@ -27,8 +27,7 @@
                 android:layout_centerInParent="true"
                 android:background="@color/common_color_ff4200"
                 android:gravity="center"
-                android:textColor="@color/common_color_c5_ffffff"
-                android:transitionName="simple transition name"/>
+                android:textColor="@color/common_color_c5_ffffff"/>
 
         </RelativeLayout>
 

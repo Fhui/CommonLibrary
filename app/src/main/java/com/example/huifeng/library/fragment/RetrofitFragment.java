@@ -82,9 +82,6 @@ public class RetrofitFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
-        setSharedElementEnterTransition(
-                TransitionInflater.from(getContext())
-                        .inflateTransition(android.R.transition.move));
     }
 
     @Override

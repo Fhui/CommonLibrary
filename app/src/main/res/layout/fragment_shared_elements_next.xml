@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/iv_pic"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:background="@mipmap/iv_pic"
-        android:transitionName="simple transition name"/>
+        android:transitionName="simple transition name"
+        tools:ignore="ContentDescription,UnusedAttribute"/>
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Android Shared Elements"
+        android:textColor="@color/common_color_c6_000000"/>
+
+</RelativeLayout>

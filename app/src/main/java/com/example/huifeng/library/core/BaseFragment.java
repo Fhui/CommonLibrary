@@ -24,9 +24,6 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
 
-
-
-
     public View rootView;
 
     public Activity mContext;
@@ -72,11 +69,13 @@ public abstract class BaseFragment extends Fragment {
         ((MainActivity) mContext).pushFragment(fragment);
     }
 
-    public void pushFragment(Fragment fragment, View view) {
-        ((MainActivity) mContext).pushFragment(fragment, view);
+
+    public void pushFragment(Fragment fragment, Fragment nextFragment, View view) {
+        ((MainActivity) mContext).pushFragment(fragment, nextFragment, view);
     }
 
-    public void popFragment(){
+
+    public void popFragment() {
         ((MainActivity) mContext).popFragment();
     }
 

@@ -72,14 +72,14 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity)mContext).hideReturn();
+        ((MainActivity) mContext).hideReturn();
     }
 
     @Override
     public void clickItem(int position, View view, LibraryBean bean) {
         Fragment fragment = bean.getmFragment();
         if (fragment != null) {
-            pushFragment(fragment, view);
+            pushFragment(fragment);
         }
     }
 }

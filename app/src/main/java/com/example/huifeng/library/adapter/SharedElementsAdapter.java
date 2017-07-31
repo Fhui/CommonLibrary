@@ -1,6 +1,7 @@
 package com.example.huifeng.library.adapter;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,7 @@ public class SharedElementsAdapter extends RecyclerView.Adapter<SharedElementsAd
                 }
             }
         });
+        ViewCompat.setTransitionName(holder.mIvPic, String.valueOf(position) + "_image");
     }
 
     @Override

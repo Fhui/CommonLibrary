@@ -1,15 +1,17 @@
 package com.example.huifeng.library;
 
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewCompat;
+import android.transition.Fade;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huifeng.library.core.BaseActivity;
+import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;
 
 import java.util.Stack;
@@ -80,14 +82,21 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    public void pushFragment(Fragment fragment, View view) {
+    public void pushFragment(Fragment thisFragment, Fragment nextFragment, View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            nextFragment.setSharedElementEnterTransition(new DetailsTransition());
+            nextFragment.setEnterTransition(new Fade());
+            thisFragment.setExitTransition(new Fade());
+            nextFragment.setSharedElementReturnTransition(new DetailsTransition());
+        }
+
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
-        fts.addSharedElement(view, ViewCompat.getTransitionName(view))
-                .replace(R.id.rl_content, fragment)
+        fts.addSharedElement(view, "simple transition name")
+                .replace(R.id.rl_content, nextFragment)
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
-        mBackStack.push(fragment);
+        mBackStack.push(nextFragment);
         if (!(peekFragment() instanceof DeskTopFragment)) {
             showReturn();
         }

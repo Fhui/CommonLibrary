@@ -1,6 +1,7 @@
 package com.example.huifeng.library.adapter;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,8 +69,10 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         }
                     }
                 });
+                ViewCompat.setTransitionName(mainHolder.mTvItem, String.valueOf(position) + "_image");
                 break;
         }
+
     }
 
     @Override
