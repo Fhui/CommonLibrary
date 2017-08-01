@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/common_color_c5_ffffff"
+    android:clickable="true"
+    tools:ignore="KeyboardInaccessibleWidget">
 
-    <ListView
-        android:id="@+id/lv_content"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/common_color_c5_ffffff">
+
+        <ListView
+            android:id="@+id/lv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-    </ListView>
+        </ListView>
 
-    <TextView
-        android:id="@+id/tv_kotlin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

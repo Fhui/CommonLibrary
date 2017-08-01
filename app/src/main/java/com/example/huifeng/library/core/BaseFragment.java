@@ -1,6 +1,7 @@
 package com.example.huifeng.library.core;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +28,8 @@ public abstract class BaseFragment extends Fragment {
     public View rootView;
 
     public Activity mContext;
+
+    public ProgressDialog progressDialog;
 
 
     @Nullable
@@ -63,6 +66,30 @@ public abstract class BaseFragment extends Fragment {
     public void onResume() {
         super.onResume();
         setTitle();
+    }
+
+    // 显示ProgressDialog
+    public void showProgressDialog(String text) {
+        if (progressDialog == null || !progressDialog.isShowing()) {
+            progressDialog = new ProgressDialog(mContext);
+            progressDialog.setMessage(text);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+    }
+
+    // 隐藏ProgressDialog
+    public void dismissProgressDialog() {
+        try {
+            if (progressDialog != null) {
+                if (progressDialog.isShowing()) {
+                    progressDialog.dismiss();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void pushFragment(Fragment fragment) {

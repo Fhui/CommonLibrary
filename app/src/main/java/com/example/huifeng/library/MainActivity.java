@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity {
     public void pushFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
-        fts.replace(R.id.rl_content, fragment)
+        fts.add(R.id.rl_content, fragment)
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
         mBackStack.push(fragment);
@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
         fts.addSharedElement(view, "simple transition name")
-                .replace(R.id.rl_content, nextFragment)
+                .add(R.id.rl_content, nextFragment)
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
         mBackStack.push(nextFragment);

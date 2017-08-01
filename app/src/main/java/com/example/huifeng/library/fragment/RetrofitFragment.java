@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.huifeng.library.MainActivity;
 import com.example.huifeng.library.R;
+import com.example.huifeng.library.bean.AllContentBean;
 import com.example.huifeng.library.core.BaseFragment;
 import com.example.huifeng.library.core.Constant;
 import com.example.huifeng.library.net.retrofit.ApiManager;
@@ -20,6 +21,9 @@ import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import rx.Observer;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Retrofit Demo
@@ -37,17 +41,20 @@ public class RetrofitFragment extends BaseFragment {
 
     @OnClick({R.id.btn_get, R.id.btn_post})
     public void click(View view) {
+        showProgressDialog("正在加载");
         switch (view.getId()) {
             case R.id.btn_get:
                 ApiManager.getApiManager().initApiService(Constant.GANK_BASE).loadHistory(1, 1).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                         mTvLoad.setText(response.body());
+                        dismissProgressDialog();
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                         mTvLoad.setText(t.getMessage());
+                        dismissProgressDialog();
                     }
                 });
                 break;
@@ -58,11 +65,13 @@ public class RetrofitFragment extends BaseFragment {
                     @Override
                     public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                         mTvLoad.setText(response.body());
+                        dismissProgressDialog();
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                         mTvLoad.setText(t.getMessage());
+                        dismissProgressDialog();
                     }
                 });
                 break;

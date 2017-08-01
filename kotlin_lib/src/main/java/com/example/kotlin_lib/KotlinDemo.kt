@@ -48,6 +48,9 @@ import java.util.*
  *  val Pi = 3.1213f
  *  fun temp(PI : Float = Pi, radius : Float)
  *  temp(radius = 3.0f)
+ *
+ *  -----继承与重写-----
+ *  类或方法可以被继承或重写要加上关键字open
  */
 
 val Pi = 3.14159f
@@ -216,8 +219,8 @@ fun intValueOfString(int: Int): String = int.toString()
  */
 fun inputTest(): String {
     print("please fir")
-    var number1 = readLine()
-    var number2 = readLine()
+    val number1 = readLine()
+    val number2 = readLine()
     return number1+number2
 }
 
@@ -254,4 +257,21 @@ fun main(args: Array<String>) {
     println("the round of area is ${getRoundArea(radius = 3.5f)}")
     println(stringValueOfInt("10"))
     println(intValueOfString(10))
+
+    val children = Children()
+    children.action()
+
+    val person1 = Man("Tom")
+    val person2 = Man("Zane")
+    val person3 = Man("Li")
+    val person4 = Man("Liu")
+    val person5 = Man("Wang")
+    val list = listOf<Person>(person1, person2, person3, person4, person5)
+    for(person in list) run {
+        person.pee()
+    }
+
+    val human = Human()
+    human.action()
+    human.eat()
 }

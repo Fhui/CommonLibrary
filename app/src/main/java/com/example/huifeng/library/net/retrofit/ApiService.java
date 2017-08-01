@@ -1,5 +1,7 @@
 package com.example.huifeng.library.net.retrofit;
 
+import com.example.huifeng.library.bean.AllContentBean;
+
 import java.util.Map;
 
 import retrofit2.Call;
@@ -8,11 +10,13 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import rx.Observable;
 
 /**
  * Retrofit API
  * Created by ShineF on 2017/7/6 0006.
  */
+
 
 public interface ApiService {
 
@@ -25,6 +29,9 @@ public interface ApiService {
      */
     @GET("history/content/{item}/{page}")
     Call<String> loadHistory(@Path("item") int item, @Path("page") int page);
+
+    @GET("data/all/{item}/{page}")
+    Observable<AllContentBean> loadAllData(@Path("item") int item, @Path("page") int page);
 
     @FormUrlEncoded
     @POST("idl_baidu/clothing_classification/clothing_classification")
