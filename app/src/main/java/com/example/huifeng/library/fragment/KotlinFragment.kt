@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import android.widget.ListView
 import com.example.huifeng.library.MainActivity
@@ -14,6 +13,8 @@ import com.example.huifeng.library.adapter.OnItemClickListener
 import com.example.huifeng.library.bean.AllContentBean
 import com.example.huifeng.library.core.BaseFragment
 import com.example.huifeng.library.core.Constant
+import com.example.huifeng.library.custom_widget.CustomSwipRefreshLayout
+import com.example.huifeng.library.custom_widget.OnLoadMoreListener
 import com.example.huifeng.library.net.retrofit.ApiManager
 import com.example.huifeng.library.utils.LogUtils
 import rx.schedulers.Schedulers
@@ -25,9 +26,9 @@ import rx.schedulers.Schedulers
 
 class KotlinFragment : BaseFragment() {
 
-    private val LOAD_SUCCESS: Int = 100;
+    private val LOAD_SUCCESS: Int = 100
     private var mLvContent: ListView? = null
-    private var mSrLayout: SwipeRefreshLayout? = null
+    private var mSrLayout: CustomSwipRefreshLayout? = null
     private var mPager: Int = 1
     private var mDataList = ArrayList<AllContentBean.ResultsBean>()
     private var mHandler = Handler({ msg: Message? ->
@@ -62,7 +63,7 @@ class KotlinFragment : BaseFragment() {
     override fun init() {
         super.init()
         mLvContent = mContext.findViewById(R.id.lv_content) as ListView
-        mSrLayout = mContext.findViewById(R.id.srl_layout) as SwipeRefreshLayout
+        mSrLayout = mContext.findViewById(R.id.srl_layout) as CustomSwipRefreshLayout
         showProgressDialog("正在加载")
         initData()
     }
@@ -82,9 +83,15 @@ class KotlinFragment : BaseFragment() {
         mSrLayout!!.setDistanceToTriggerSync(100)
         mSrLayout!!.setOnRefreshListener({
             mPager++
-            mHandler.postDelayed(Runnable {
+            mHandler.postDelayed({
                 loadData()
             }, 1200)
+        })
+        mSrLayout!!.setOnLoadMoreListener(object : OnLoadMoreListener{
+            override fun onLoadMore() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
         })
         loadData()
     }

@@ -44,6 +44,7 @@ class WebViewFragment : BaseFragment() {
                 super.onPageStarted(view, url, favicon)
                 showProgressDialog("正在加载")
             }
+
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 view!!.loadUrl(url)
                 return true

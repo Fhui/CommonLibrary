@@ -74,6 +74,7 @@ public abstract class BaseFragment extends Fragment {
             progressDialog = new ProgressDialog(mContext);
             progressDialog.setMessage(text);
             progressDialog.setCancelable(false);
+            progressDialog.setCanceledOnTouchOutside(true);
             progressDialog.show();
         }
     }
