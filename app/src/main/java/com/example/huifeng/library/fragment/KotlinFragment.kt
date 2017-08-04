@@ -26,29 +26,43 @@ import rx.schedulers.Schedulers
 
 class KotlinFragment : BaseFragment() {
 
-    private val LOAD_SUCCESS: Int = 100
+    private val UP_DATA: Int = 100
+    private val LOAD_MORE: Int = 200
     private var mLvContent: ListView? = null
     private var mSrLayout: CustomSwipRefreshLayout? = null
     private var mPager: Int = 1
+    private var mItem: Int = 20
     private var mDataList = ArrayList<AllContentBean.ResultsBean>()
     private var mHandler = Handler({ msg: Message? ->
-        if (msg?.what == LOAD_SUCCESS) {
-            val dataList: ArrayList<AllContentBean.ResultsBean> = msg!!.obj as ArrayList<AllContentBean.ResultsBean>
-            val adapter = KotlinContentAdapter(dataList, mContext)
-            mLvContent!!.adapter = adapter
-            if (mSrLayout!!.isRefreshing) {
-                mSrLayout!!.isRefreshing = false
-            }
-            adapter.setOnItemClick(object : OnItemClickListener {
-                override fun onItemClick(view: View, position: Int, bean: AllContentBean.ResultsBean) {
-                    val webFragment = WebViewFragment()
-                    val bundle = Bundle()
-                    bundle.putParcelable("data", bean)
-                    webFragment.arguments = bundle
-                    pushFragment(webFragment)
+        val dataList: ArrayList<AllContentBean.ResultsBean> = msg!!.obj as ArrayList<AllContentBean.ResultsBean>
+        var adapter: KotlinContentAdapter? = null
+        when (msg.what) {
+            UP_DATA -> {
+                mDataList.clear()
+                mDataList.addAll(dataList)
+                adapter = KotlinContentAdapter(dataList, mContext)
+                mLvContent!!.adapter = adapter
+                if (mSrLayout!!.isRefreshing) {
+                    mSrLayout!!.isRefreshing = false
                 }
-            })
+            }
+            LOAD_MORE -> {
+                mDataList.addAll(dataList)
+                adapter = KotlinContentAdapter(mDataList, mContext)
+                mSrLayout!!.setLoading(false)
+                mLvContent!!.adapter = adapter
+                mLvContent!!.setSelection(mItem - 10)
+            }
         }
+        adapter!!.setOnItemClick(object : OnItemClickListener {
+            override fun onItemClick(view: View, position: Int, bean: AllContentBean.ResultsBean) {
+                val webFragment = WebViewFragment()
+                val bundle = Bundle()
+                bundle.putParcelable("data", bean)
+                webFragment.arguments = bundle
+                pushFragment(webFragment)
+            }
+        })
         return@Handler false
     })
 
@@ -84,24 +98,28 @@ class KotlinFragment : BaseFragment() {
         mSrLayout!!.setOnRefreshListener({
             mPager++
             mHandler.postDelayed({
-                loadData()
+                loadData(UP_DATA)
             }, 1200)
         })
-        mSrLayout!!.setOnLoadMoreListener(object : OnLoadMoreListener{
+        mSrLayout!!.setOnLoadMoreListener(object : OnLoadMoreListener {
             override fun onLoadMore() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                mItem += 10
+                loadData(LOAD_MORE)
             }
-
         })
-        loadData()
+        loadData(UP_DATA)
     }
 
-    fun loadData(): Unit {
-        ApiManager.getApiManager().initApiService(Constant.GANK_BASE).loadAllData(20, mPager)
+    fun loadData(what: Int): Unit {
+        ApiManager.getApiManager().initApiService(Constant.GANK_BASE).loadAllData(mItem, mPager)
                 .subscribeOn(Schedulers.io())
                 .subscribe({ success ->
                     val obtain = Message.obtain()
-                    obtain.what = LOAD_SUCCESS
+                    when (what) {
+                        UP_DATA -> obtain.what = UP_DATA
+                        LOAD_MORE -> obtain.what = LOAD_MORE
+                    }
+
                     obtain.obj = success.results
                     mHandler.sendMessage(obtain)
                 }, { error ->

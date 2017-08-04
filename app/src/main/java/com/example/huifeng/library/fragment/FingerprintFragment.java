@@ -231,7 +231,7 @@ public class FingerprintFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("Fingerprint");
+        ((MainActivity) mContext).setmTitleText("指纹");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

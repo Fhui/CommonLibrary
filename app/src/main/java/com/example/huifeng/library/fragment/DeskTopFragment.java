@@ -53,7 +53,7 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
         String[] fragmentArray = getResources().getStringArray(R.array.fragment_name);
         String[] stringArray = getResources().getStringArray(R.array.recycle_list);
         for (String s : stringArray) {
-            if (s.startsWith("About")) {
+            if (s.startsWith("+")) {
                 mList.add(new LibraryBean(null, s));
             } else {
                 if (fragmentArray.length - 1 >= temp) {

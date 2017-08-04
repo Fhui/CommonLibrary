@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_color_c5_ffffff"
+    android:clickable="true"
+    android:orientation="vertical"
+    tools:ignore="KeyboardInaccessibleWidget">
+
+    <com.example.huifeng.library.custom_widget.AdderSubtractorView
+        android:id="@+id/adder_subtractor_view"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/common_dimen_dp10"/>
+
+
+    <com.example.huifeng.library.custom_widget.AdderSubtractorView
+        android:id="@+id/adder_subtractor_view_2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/common_dimen_dp10"/>
+
+</LinearLayout>

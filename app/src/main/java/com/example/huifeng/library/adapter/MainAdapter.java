@@ -56,17 +56,15 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         switch (getItemViewType(position)) {
             case TITLE_ITEM:
                 MainTitleHolder titleHolder = (MainTitleHolder) holder;
-                titleHolder.mTvItem.setText(libraryBean.getItemName());
+                String itemName = libraryBean.getItemName();
+                titleHolder.mTvItem.setText(itemName.substring(1, itemName.length()));
                 break;
             case CONTENT_ITEM:
                 final MainHolder mainHolder = (MainHolder) holder;
                 mainHolder.mTvItem.setText(libraryBean.getItemName());
-                mainHolder.mTvItem.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mListener != null) {
-                            mListener.clickItem(position, mainHolder.mTvItem, libraryBean);
-                        }
+                mainHolder.mTvItem.setOnClickListener(v -> {
+                    if (mListener != null) {
+                        mListener.clickItem(position, mainHolder.mTvItem, libraryBean);
                     }
                 });
                 ViewCompat.setTransitionName(mainHolder.mTvItem, String.valueOf(position) + "_image");
@@ -83,7 +81,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemViewType(int position) {
         String s = mList.get(position).getItemName();
-        if (s.startsWith("About")) {
+        if (s.startsWith("+")) {
             return TITLE_ITEM;
         } else {
             return CONTENT_ITEM;

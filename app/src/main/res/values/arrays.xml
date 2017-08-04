@@ -3,25 +3,26 @@
 
     <array name="recycle_list">
 
-        <item>About Network</item>
+        <item>+网络</item>
         <item>Retrofit</item>
         <item>OkHttp</item>
         <item>NoHttp</item>
-        <item>About UI</item>
-        <item>Shared Elements</item>
-        <item>Contacts</item>
-        <item>Progress</item>
+        <item>+UI</item>
+        <item>数字加减器</item>
+        <item>共享元素</item>
+        <item>联系人</item>
+        <item>进度条</item>
         <item>PopupWindow</item>
-        <item>Fingerprint</item>
+        <item>指纹</item>
         <item>Dialog</item>
         <item>EasyRecycleView</item>
         <item>MarginDesign</item>
-        <item>Notification</item>
-        <item>About Library</item>
+        <item>通知</item>
+        <item>+第三方库, 设计模式</item>
         <item>RXJava</item>
         <item>MVP</item>
         <item>MVVM</item>
-        <item>About New Technology</item>
+        <item>+新技术</item>
         <item>Kotlin</item>
 
     </array>
@@ -30,6 +31,7 @@
         <item>com.example.huifeng.library.fragment.RetrofitFragment</item>
         <item>com.example.huifeng.library.fragment.OkHttpFragment</item>
         <item>com.example.huifeng.library.fragment.NoHttpFragment</item>
+        <item>com.example.huifeng.library.fragment.AdderSubtractorFragment</item>
         <item>com.example.huifeng.library.fragment.SharedElementsFragment</item>
         <item>com.example.huifeng.library.fragment.ContactsFragment</item>
         <item>com.example.huifeng.library.fragment.ProgressFragment</item>
