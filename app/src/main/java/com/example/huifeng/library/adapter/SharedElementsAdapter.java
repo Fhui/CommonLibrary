@@ -31,7 +31,7 @@ public class SharedElementsAdapter extends RecyclerView.Adapter<SharedElementsAd
         this.mList = list;
     }
 
-    public void setOnItemClick(OnItemClick click){
+    public void setOnItemClick(OnItemClick click) {
         this.mClick = click;
     }
 
@@ -43,15 +43,12 @@ public class SharedElementsAdapter extends RecyclerView.Adapter<SharedElementsAd
     @Override
     public void onBindViewHolder(SharedElementsViewHolder holder, final int position) {
         holder.mIvPic.setBackgroundResource(R.mipmap.iv_pic);
-        holder.mIvPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mClick != null){
-                    mClick.itemClick(v, position);
-                }
+        ViewCompat.setTransitionName(holder.mIvPic, String.valueOf(position) + "_image");
+        holder.mIvPic.setOnClickListener(v -> {
+            if (mClick != null) {
+                mClick.itemClick(holder.mIvPic, position);
             }
         });
-        ViewCompat.setTransitionName(holder.mIvPic, String.valueOf(position) + "_image");
     }
 
     @Override
@@ -70,7 +67,7 @@ public class SharedElementsAdapter extends RecyclerView.Adapter<SharedElementsAd
         }
     }
 
-    public interface  OnItemClick{
+    public interface OnItemClick {
         void itemClick(View view, int position);
     }
 }

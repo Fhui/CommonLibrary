@@ -1,16 +1,13 @@
 package com.example.huifeng.library.fragment;
 
-import android.os.Build;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.transition.Fade;
 import android.view.View;
 
 import com.example.huifeng.library.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.SharedElementsAdapter;
 import com.example.huifeng.library.core.BaseFragment;
-import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.utils.SpaceItemDecoration;
 
 import java.util.ArrayList;

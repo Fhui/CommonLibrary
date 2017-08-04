@@ -1,5 +1,6 @@
 package com.example.huifeng.library.core;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,14 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
 
-
-import com.example.huifeng.library.R;
 import com.example.huifeng.library.utils.SharedPreferencesHelper;
 import com.example.huifeng.library.utils.StatusBarTools;
 
@@ -28,7 +23,8 @@ import butterknife.ButterKnife;
  * Created by ShineF on 2016/12/5 0005.
  */
 
-public class BaseActivity extends AppCompatActivity {
+@SuppressLint("Registered")
+public class BaseActivity extends FragmentActivity {
 
     public Context mContext;
     public SharedPreferencesHelper sp;

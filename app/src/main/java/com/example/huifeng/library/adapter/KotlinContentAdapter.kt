@@ -57,7 +57,6 @@ class ViewHolder(val view: View) {
     var tvTime = view.findViewById(R.id.tv_time) as TextView
     var tvType = view.findViewById(R.id.tv_type) as TextView
     var rlItem = view.findViewById(R.id.rl_item_bg) as RelativeLayout
-
 }
 
 interface OnItemClickListener {

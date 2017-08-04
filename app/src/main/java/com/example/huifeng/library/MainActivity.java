@@ -1,5 +1,6 @@
 package com.example.huifeng.library;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,8 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huifeng.library.core.BaseActivity;
+import com.example.huifeng.library.core.BaseFragment;
 import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;
+import com.example.huifeng.library.fragment.SelectPicFragment;
+import com.example.huifeng.library.utils.LogUtils;
+import com.zhihu.matisse.Matisse;
 
 import java.util.Stack;
 
@@ -73,7 +78,7 @@ public class MainActivity extends BaseActivity {
     public void pushFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
-        fts.add(R.id.rl_content, fragment)
+        fts.add(R.id.fl_content, fragment)
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
         mBackStack.push(fragment);
@@ -89,11 +94,10 @@ public class MainActivity extends BaseActivity {
             thisFragment.setExitTransition(new Fade());
             nextFragment.setSharedElementReturnTransition(new DetailsTransition());
         }
-
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fts = fm.beginTransaction();
-        fts.addSharedElement(view, "simple transition name")
-                .add(R.id.rl_content, nextFragment)
+        fts.addSharedElement(view, getResources().getString(R.string.transName))
+                .replace(R.id.fl_content, nextFragment)
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
         mBackStack.push(nextFragment);
@@ -142,5 +146,14 @@ public class MainActivity extends BaseActivity {
             finish();
         }
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Fragment fragment = mBackStack.peek();
+        if (fragment instanceof SelectPicFragment) {
+            ((SelectPicFragment) fragment).setData(Matisse.obtainResult(data));
+        }
     }
 }

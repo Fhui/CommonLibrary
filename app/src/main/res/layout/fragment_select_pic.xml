@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_color_c5_ffffff"
+    android:clickable="true"
+    android:orientation="vertical"
+    tools:ignore="KeyboardInaccessibleWidget">
+
+    <Button
+        android:id="@+id/btn_select_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/common_btn_color_FF9138"
+        android:text=" 选择图片"
+        android:textColor="@color/common_color_c5_ffffff"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcl_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
