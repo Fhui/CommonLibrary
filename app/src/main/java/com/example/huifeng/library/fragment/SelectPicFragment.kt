@@ -31,7 +31,7 @@ class SelectPicFragment : BaseFragment(), PermissionUtils.PermissionCallbacks, D
     var mRecycleContent: RecyclerView? = null
 
     override fun setTitle() {
-        (mContext as MainActivity).setmTitleText("图片选择器")
+        (mContext as MainActivity).setTitleText("图片选择器")
     }
 
     override fun setContentLayout(): Int {

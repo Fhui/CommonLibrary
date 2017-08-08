@@ -18,6 +18,6 @@ public class EasyRecycleViewFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("EasyRecycleView");
+        ((MainActivity) mContext).setTitleText("EasyRecycleView");
     }
 }

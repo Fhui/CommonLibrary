@@ -29,7 +29,7 @@ public class NoHttpFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("NoHttp");
+        ((MainActivity) mContext).setTitleText("NoHttp");
     }
 
 }

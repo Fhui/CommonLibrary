@@ -1,6 +1,5 @@
 package com.example.huifeng.library.fragment;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -108,6 +107,6 @@ public class ProgressFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("Progress");
+        ((MainActivity) mContext).setTitleText("Progress");
     }
 }

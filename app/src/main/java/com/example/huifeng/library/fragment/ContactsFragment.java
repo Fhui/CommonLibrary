@@ -21,25 +21,19 @@ import android.widget.Toast;
 import com.example.huifeng.library.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.ContactAdapter;
-import com.example.huifeng.library.bean.AllContentBean;
 import com.example.huifeng.library.bean.ContactsBean;
 import com.example.huifeng.library.core.BaseFragment;
-import com.example.huifeng.library.core.Constant;
 import com.example.huifeng.library.custom_widget.ClearEditText;
 import com.example.huifeng.library.custom_widget.SectionBar;
-import com.example.huifeng.library.net.retrofit.ApiManager;
 import com.example.huifeng.library.utils.ContactsUtils;
-import com.example.huifeng.library.utils.LogUtils;
 import com.example.huifeng.library.utils.PermissionUtils;
 import com.example.huifeng.library.utils.PinyinUtils;
 import com.example.huifeng.library.utils.ThreadUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import butterknife.BindView;
-import rx.Subscriber;
 
 /**
  * 联系人Fragment
@@ -132,7 +126,7 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("Constant");
+        ((MainActivity) mContext).setTitleText("Constant");
     }
 
     private List<ContactsBean> filledData(List<ContactsBean> beanList) {

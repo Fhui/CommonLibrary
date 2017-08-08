@@ -14,18 +14,18 @@ public class LogUtils {
 			if(!TextUtils.isEmpty(text)&&text.length() > 3000) {
 				for(int i=0;i<text.length();i+=3000){
 					if(i+3000<text.length())
-						Log.d("wangcang",text.substring(i, i+3000));
+						Log.d("Library",text.substring(i, i+3000));
 					else
-						Log.d("wangcang",text.substring(i, text.length()));
+						Log.d("Library",text.substring(i, text.length()));
 				}
 			} else
-				Log.d("wangcang",text);
+				Log.d("Library",text);
 		}
 	}
 
 	public static void showErrLog(String text) {
 		if (debug) {
-			Log.e("wangcang", text);
+			Log.e("Library", text);
 		}
 	}
 
@@ -34,12 +34,12 @@ public class LogUtils {
 			if(!TextUtils.isEmpty(text)&&text.length() > 3000) {
 				for(int i=0;i<text.length();i+=3000){
 					if(i+3000<text.length())
-						Log.i("wangcang",text.substring(i, i+3000));
+						Log.i("Library",text.substring(i, i+3000));
 					else
-						Log.i("wangcang",text.substring(i, text.length()));
+						Log.i("Library",text.substring(i, text.length()));
 				}
 			} else
-				Log.i("wangcang",text);
+				Log.i("Library",text);
 		}
 	}
 }

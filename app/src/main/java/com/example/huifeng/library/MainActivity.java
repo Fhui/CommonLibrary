@@ -2,6 +2,7 @@ package com.example.huifeng.library;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huifeng.library.core.BaseActivity;
-import com.example.huifeng.library.core.BaseFragment;
 import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;
 import com.example.huifeng.library.fragment.SelectPicFragment;
@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
         hideReturn();
         mBackStack = new Stack<>();
         pushFragment(new DeskTopFragment());
-        setmTitleText("MyNote");
+        setTitleText("MyNote");
     }
 
     public void hideReturn() {
@@ -65,7 +65,8 @@ public class MainActivity extends BaseActivity {
         mImgReturn.setVisibility(View.VISIBLE);
     }
 
-    public void setmTitleText(String title) {
+    public void setTitleText(String title) {
+        LogUtils.showErrLog("stack ----- > " + mBackStack.size());
         mTitleText.setText(title);
     }
 
@@ -116,6 +117,11 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction ft = fm.beginTransaction();
         ft.remove(pop);
         ft.commitAllowingStateLoss();
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            Intent it = new Intent("title");
+            sendBroadcast(it);
+        }, 300);
     }
 
     /**

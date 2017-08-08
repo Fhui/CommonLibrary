@@ -24,6 +24,6 @@ public class DialogFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("Dialog");
+        ((MainActivity) mContext).setTitleText("Dialog");
     }
 }

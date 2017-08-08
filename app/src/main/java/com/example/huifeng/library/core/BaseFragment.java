@@ -2,13 +2,17 @@ package com.example.huifeng.library.core;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +35,7 @@ public abstract class BaseFragment extends Fragment {
 
     public ProgressDialog progressDialog;
 
+    private BroadCast reveiver;
 
     @Nullable
     @Override
@@ -51,13 +56,21 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public void init() {
-
+        reveiver = new BroadCast();
+        IntentFilter filter = new IntentFilter("title");
+        mContext.registerReceiver(reveiver, filter);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = getActivity();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mContext.unregisterReceiver(reveiver);
     }
 
     public abstract void setTitle();
@@ -105,6 +118,19 @@ public abstract class BaseFragment extends Fragment {
 
     public void popFragment() {
         ((MainActivity) mContext).popFragment();
+    }
+
+    class BroadCast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (null != intent.getAction())
+                switch (intent.getAction()) {
+                    case "title":
+                        setTitle();
+                        break;
+                }
+        }
     }
 
 }

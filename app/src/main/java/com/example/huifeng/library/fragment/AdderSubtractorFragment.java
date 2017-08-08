@@ -45,7 +45,7 @@ public class AdderSubtractorFragment extends BaseFragment implements AdderSubtra
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("数字加减器");
+        ((MainActivity) mContext).setTitleText("数字加减器");
     }
 
     @Override

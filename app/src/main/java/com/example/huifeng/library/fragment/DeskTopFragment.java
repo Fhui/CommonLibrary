@@ -1,6 +1,5 @@
 package com.example.huifeng.library.fragment;
 
-import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +44,7 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("MyNote");
+        ((MainActivity) mContext).setTitleText("MyNote");
     }
 
     public void initData() {

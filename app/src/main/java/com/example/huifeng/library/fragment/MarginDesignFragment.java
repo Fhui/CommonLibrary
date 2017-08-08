@@ -18,6 +18,6 @@ class MarginDesignFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("MarginDesign");
+        ((MainActivity) mContext).setTitleText("MarginDesign");
     }
 }

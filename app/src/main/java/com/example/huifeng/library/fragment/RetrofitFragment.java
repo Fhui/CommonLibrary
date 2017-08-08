@@ -1,14 +1,12 @@
 package com.example.huifeng.library.fragment;
 
 import android.support.annotation.NonNull;
-import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.huifeng.library.MainActivity;
 import com.example.huifeng.library.R;
-import com.example.huifeng.library.bean.AllContentBean;
 import com.example.huifeng.library.core.BaseFragment;
 import com.example.huifeng.library.core.Constant;
 import com.example.huifeng.library.net.retrofit.ApiManager;
@@ -21,9 +19,6 @@ import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import rx.Observer;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 /**
  * Retrofit Demo
@@ -95,7 +90,7 @@ public class RetrofitFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("Retrifit");
+        ((MainActivity) mContext).setTitleText("Retrifit");
     }
 
 }

@@ -19,7 +19,7 @@ public class SharedElementsNextFragments extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("ShardElements");
+        ((MainActivity) mContext).setTitleText("ShardElements");
     }
 
     @Override

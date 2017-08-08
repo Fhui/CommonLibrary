@@ -19,7 +19,7 @@ public class RxJavaFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("RXJava");
+        ((MainActivity) mContext).setTitleText("RXJava");
     }
 
 

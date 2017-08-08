@@ -63,7 +63,7 @@ class WebViewFragment : BaseFragment() {
     }
 
     override fun setTitle() {
-        (mContext as MainActivity).setmTitleText("Kotlin")
+        (mContext as MainActivity).setTitleText("Kotlin")
     }
 
 }

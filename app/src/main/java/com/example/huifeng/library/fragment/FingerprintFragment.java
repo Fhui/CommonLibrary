@@ -11,7 +11,6 @@ import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,9 +21,6 @@ import com.example.huifeng.library.R;
 import com.example.huifeng.library.core.BaseFragment;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyPairGenerator;
@@ -231,7 +227,7 @@ public class FingerprintFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("指纹");
+        ((MainActivity) mContext).setTitleText("指纹");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

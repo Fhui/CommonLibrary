@@ -49,7 +49,7 @@ public class PopupWindowFragment extends BaseFragment implements EasyPopupWindow
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("PopupWindow");
+        ((MainActivity) mContext).setTitleText("PopupWindow");
     }
 
     @Override

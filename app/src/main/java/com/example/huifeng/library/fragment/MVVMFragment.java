@@ -19,7 +19,7 @@ public class MVVMFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("MVVM");
+        ((MainActivity) mContext).setTitleText("MVVM");
     }
 
 

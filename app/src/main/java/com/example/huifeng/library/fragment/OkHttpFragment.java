@@ -29,7 +29,7 @@ public class OkHttpFragment extends BaseFragment {
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("OkHttp");
+        ((MainActivity) mContext).setTitleText("OkHttp");
     }
 
 }

@@ -28,7 +28,7 @@ public class SharedElementsFragment extends BaseFragment implements SharedElemen
 
     @Override
     public void setTitle() {
-        ((MainActivity) mContext).setmTitleText("ShardElements");
+        ((MainActivity) mContext).setTitleText("ShardElements");
     }
 
     @Override
