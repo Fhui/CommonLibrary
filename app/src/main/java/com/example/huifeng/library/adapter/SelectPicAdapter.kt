@@ -29,7 +29,7 @@ class SelectPicAdapter(private val dataList: List<Uri>, val context: Context) : 
         var img_pc: ImageView? = null
 
         init {
-            img_pc = itemView!!.findViewById(R.id.iv_pic) as ImageView
+            img_pc = itemView!!.findViewById<ImageView>(R.id.iv_pic)
         }
 
     }

@@ -9,6 +9,7 @@
         <item>NoHttp</item>
         <item>+UI</item>
         <item>数字加减器</item>
+        <item>登陆</item>
         <item>知乎图片选择器</item>
         <item>共享元素</item>
         <item>联系人</item>
@@ -33,6 +34,7 @@
         <item>com.example.huifeng.library.fragment.OkHttpFragment</item>
         <item>com.example.huifeng.library.fragment.NoHttpFragment</item>
         <item>com.example.huifeng.library.fragment.AdderSubtractorFragment</item>
+        <item>com.example.huifeng.library.fragment.LoginFragment</item>
         <item>com.example.huifeng.library.fragment.SelectPicFragment</item>
         <item>com.example.huifeng.library.fragment.SharedElementsFragment</item>
         <item>com.example.huifeng.library.fragment.ContactsFragment</item>

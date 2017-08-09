@@ -34,6 +34,7 @@ class KotlinFragment : BaseFragment() {
     private var mItem: Int = 20
     private var mDataList = ArrayList<AllContentBean.ResultsBean>()
     private var mHandler = Handler({ msg: Message? ->
+        @Suppress("UNCHECKED_CAST")
         val dataList: ArrayList<AllContentBean.ResultsBean> = msg!!.obj as ArrayList<AllContentBean.ResultsBean>
         var adapter: KotlinContentAdapter? = null
         when (msg.what) {
@@ -76,8 +77,8 @@ class KotlinFragment : BaseFragment() {
 
     override fun init() {
         super.init()
-        mLvContent = mContext.findViewById(R.id.lv_content) as ListView
-        mSrLayout = mContext.findViewById(R.id.srl_layout) as CustomSwipRefreshLayout
+        mLvContent = mContext.findViewById(R.id.lv_content)
+        mSrLayout = mContext.findViewById(R.id.srl_layout)
         showProgressDialog("正在加载")
         initData()
     }

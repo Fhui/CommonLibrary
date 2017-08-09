@@ -31,7 +31,7 @@ class KotlinContentAdapter(var dataList: List<AllContentBean.ResultsBean>, var c
             holder = ViewHolder(view)
             view.tag = holder
         } else {
-            view = convertView!!
+            view = convertView
             holder = view.tag as ViewHolder
         }
         val data = dataList[position]
@@ -53,12 +53,12 @@ class KotlinContentAdapter(var dataList: List<AllContentBean.ResultsBean>, var c
 }
 
 class ViewHolder(val view: View) {
-    var tvContent = view.findViewById(R.id.tv_content) as TextView
-    var tvTime = view.findViewById(R.id.tv_time) as TextView
-    var tvType = view.findViewById(R.id.tv_type) as TextView
-    var rlItem = view.findViewById(R.id.rl_item_bg) as RelativeLayout
+    var tvContent: TextView = view.findViewById(R.id.tv_content)
+    var tvTime: TextView = view.findViewById(R.id.tv_time)
+    var tvType: TextView = view.findViewById(R.id.tv_type)
+    var rlItem: RelativeLayout = view.findViewById(R.id.rl_item_bg)
 }
 
 interface OnItemClickListener {
-    fun onItemClick(view: View, position: Int, bean : AllContentBean.ResultsBean)
+    fun onItemClick(view: View, position: Int, bean: AllContentBean.ResultsBean)
 }

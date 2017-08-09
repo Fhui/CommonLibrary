@@ -13,7 +13,6 @@ import com.example.huifeng.library.MainActivity
 import com.example.huifeng.library.R
 import com.example.huifeng.library.adapter.SelectPicAdapter
 import com.example.huifeng.library.core.BaseFragment
-import com.example.huifeng.library.utils.LogUtils
 import com.example.huifeng.library.utils.PermissionUtils
 import com.example.huifeng.library.utils.SpaceItemDecoration
 import com.zhihu.matisse.Matisse
@@ -40,8 +39,8 @@ class SelectPicFragment : BaseFragment(), PermissionUtils.PermissionCallbacks, D
 
     override fun init() {
         super.init()
-        mSelectBtn = rootView.findViewById(R.id.btn_select_pic) as Button
-        mRecycleContent = rootView.findViewById(R.id.rcl_contacts) as RecyclerView
+        mSelectBtn = rootView.findViewById<Button>(R.id.btn_select_pic)
+        mRecycleContent = rootView.findViewById(R.id.rcl_contacts)
         mSelectBtn!!.setOnClickListener({ PermissionUtils.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1) })
     }
 
@@ -80,14 +79,13 @@ class SelectPicFragment : BaseFragment(), PermissionUtils.PermissionCallbacks, D
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        LogUtils.showErrLog("askdljasldasl;dasjdasldj;aslkjlk")
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == -1) {
 
         }
     }
 
-    fun setData(dataList : List<Uri>) : Unit {
+    fun setData(dataList: List<Uri>): Unit {
         val adapter: SelectPicAdapter = SelectPicAdapter(dataList, mContext)
         mRecycleContent!!.layoutManager = GridLayoutManager(mContext, 2)
         mRecycleContent!!.addItemDecoration(SpaceItemDecoration(10, 10))

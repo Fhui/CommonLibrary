@@ -21,7 +21,7 @@ class WebViewFragment : BaseFragment() {
 
     override fun init() {
         super.init()
-        mWebView = rootView.findViewById(R.id.wb_content) as WebView
+        mWebView = rootView.findViewById(R.id.wb_content)
         initData()
     }
 
@@ -39,7 +39,7 @@ class WebViewFragment : BaseFragment() {
         setting.javaScriptCanOpenWindowsAutomatically = true  //支持通过JS打开新窗口
         setting.loadsImagesAutomatically = true  //支持自动加载图片
         mWebView!!.loadUrl(mUrl)
-        mWebView!!.setWebViewClient(object : WebViewClient() {
+        mWebView!!.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 showProgressDialog("正在加载")
@@ -54,7 +54,7 @@ class WebViewFragment : BaseFragment() {
                 super.onPageFinished(view, url)
                 dismissProgressDialog()
             }
-        })
+        }
 
     }
 
