@@ -5,10 +5,12 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import com.example.huifeng.library.bean.LibraryBean;
+import com.example.huifeng.library.core.Common;
 
 import java.util.List;
 
@@ -62,9 +64,14 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case CONTENT_ITEM:
                 final MainHolder mainHolder = (MainHolder) holder;
                 mainHolder.mTvItem.setText(libraryBean.getItemName());
-                mainHolder.mTvItem.setOnClickListener(v -> {
-                    if (mListener != null) {
-                        mListener.clickItem(position, mainHolder.mTvItem, libraryBean);
+                mainHolder.mItem.setOnClickListener(v -> {
+                    if(!Common.getInstance().isNotFastClick()){
+                        mainHolder.mItem.setPressed(true);
+                        if (mListener != null) {
+                            mListener.clickItem(position, mainHolder.mTvItem, libraryBean);
+                        }
+                    }else{
+                        mainHolder.mItem.setPressed(false);
                     }
                 });
                 ViewCompat.setTransitionName(mainHolder.mTvItem, String.valueOf(position) + "_image");
@@ -95,10 +102,12 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private class MainHolder extends RecyclerView.ViewHolder {
 
         TextView mTvItem;
+        RelativeLayout mItem;
 
         MainHolder(View itemView) {
             super(itemView);
-            mTvItem = (TextView) itemView.findViewById(id.tv_item);
+            mTvItem = itemView.findViewById(id.tv_item);
+            mItem = itemView.findViewById(id.rl_layout);
         }
     }
 
