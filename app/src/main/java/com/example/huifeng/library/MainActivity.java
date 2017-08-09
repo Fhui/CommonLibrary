@@ -1,5 +1,6 @@
 package com.example.huifeng.library;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
@@ -8,13 +9,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.transition.Fade;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huifeng.library.core.BaseActivity;
 import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;
+import com.example.huifeng.library.fragment.LoginFragment;
 import com.example.huifeng.library.fragment.SelectPicFragment;
 import com.example.huifeng.library.utils.LogUtils;
 import com.zhihu.matisse.Matisse;
@@ -23,6 +27,7 @@ import java.util.Stack;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import it.sephiroth.android.library.easing.Linear;
 
 
 /**
@@ -36,6 +41,8 @@ public class MainActivity extends BaseActivity {
     ImageView mImgReturn;
     @BindView(R.id.tv_title_text)
     TextView mTitleText;
+    @BindView(R.id.ll_title)
+    LinearLayout mLlTitle;
     private long mExitTime = 0;
 
     @OnClick(R.id.back_bt)
@@ -86,6 +93,12 @@ public class MainActivity extends BaseActivity {
         if (!(peekFragment() instanceof DeskTopFragment)) {
             showReturn();
         }
+        if (peekFragment() instanceof LoginFragment) {
+            if (mTitleText.getVisibility() == View.VISIBLE)
+                mLlTitle.setVisibility(View.GONE);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     public void pushFragment(Fragment thisFragment, Fragment nextFragment, View view) {
@@ -102,15 +115,20 @@ public class MainActivity extends BaseActivity {
                 .addToBackStack("BackStack")
                 .commitAllowingStateLoss();
         mBackStack.push(nextFragment);
-        if (!(peekFragment() instanceof DeskTopFragment)) {
+        if (!(peekFragment() instanceof DeskTopFragment))
             showReturn();
-        }
+
     }
 
     /**
      * Fragment出栈
      */
     public void popFragment() {
+        if (mLlTitle.getVisibility() == View.GONE)
+            mLlTitle.setVisibility(View.VISIBLE);
+        if (isFullScreen(this)) {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         FragmentManager fm = getSupportFragmentManager();
         fm.popBackStackImmediate();
         Fragment pop = mBackStack.pop();
@@ -121,7 +139,23 @@ public class MainActivity extends BaseActivity {
         handler.postDelayed(() -> {
             Intent it = new Intent("title");
             sendBroadcast(it);
-        }, 300);
+        }, 100);
+    }
+
+    /**
+     * 判断是否是全屏
+     *
+     * @param activity Activity
+     * @return 结果
+     */
+    public static boolean isFullScreen(Activity activity) {
+        int flag = activity.getWindow().getAttributes().flags;
+        if ((flag & WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                == WindowManager.LayoutParams.FLAG_FULLSCREEN) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

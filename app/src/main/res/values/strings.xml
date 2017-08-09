@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Library</string>
     <string name="transName">transitionName</string>
+    <string name="login_title">MOMO</string>
+    <string name="login_input_account">请输入账号</string>
+    <string name="login_input_pwd">请输入密码</string>
+    <string name="login_btn_text">登录</string>
+    <string name="register_text">注册</string>
+    <string name="login_wechat">微信登录</string>
+    <string name="login_qq">QQ登录</string>
 </resources>

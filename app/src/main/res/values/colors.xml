@@ -40,6 +40,8 @@
     <color name="common_btn_color_0971ce">#0971ce</color>
     <color name="common_btn_color_0869c2">#0869c2</color>
     <color name="common_btn_color_007ae2">#007ae2</color>
+    <color name="common_btn_color_234E96">#234E96</color>
+    <color name="common_btn_color_3A66FB">#3A66FB</color>
 
 
     <color name="common_color_c2c7cd">#c2c7cd</color>
@@ -63,6 +65,7 @@
     <color name="warning_color">#f4511e</color>
     <color name="hint_color">#42000000</color>
     <color name="success_color">#009688</color>
+    <color name="login_other">#787878</color>
 
     <!--
         颜色值透明度查询(不透明度要用100%减)
