@@ -65,7 +65,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 final MainHolder mainHolder = (MainHolder) holder;
                 mainHolder.mTvItem.setText(libraryBean.getItemName());
                 mainHolder.mItem.setOnClickListener(v -> {
-                    if(!Common.getInstance().isNotFastClick()){
+                    if(Common.getInstance().isNotFastClick()){
                         mainHolder.mItem.setPressed(true);
                         if (mListener != null) {
                             mListener.clickItem(position, mainHolder.mTvItem, libraryBean);
