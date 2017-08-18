@@ -3,9 +3,15 @@ package com.example.huifeng.library.fragment;
 import com.example.huifeng.library.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.core.BaseFragment;
+import com.example.huifeng.library.utils.LogUtils;
+
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.functions.Action1;
 
 /**
- *  Dialog Fragment
+ * Dialog Fragment
  * Created by ShineF on 2017/7/21 0021.
  */
 
@@ -20,6 +26,24 @@ public class DialogFragment extends BaseFragment {
     public void init() {
         super.init();
         ((MainActivity) mContext).showReturn();
+        Observable.create((Observable.OnSubscribe<String>)
+                subscriber -> subscriber.onNext("info"))
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        LogUtils.showLog("onComplete");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtils.showErrLog("error----->" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        LogUtils.showErrLog("info----->" + s);
+                    }
+                });
     }
 
     @Override
