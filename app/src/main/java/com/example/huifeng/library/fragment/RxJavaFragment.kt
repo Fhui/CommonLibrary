@@ -5,6 +5,7 @@ import com.example.huifeng.library.core.BaseFragment
 import com.example.huifeng.library.utils.LogUtils
 import rx.Observable
 import rx.Observer
+import rx.functions.Action1
 
 
 /**
@@ -17,22 +18,6 @@ class RxJavaFragment : BaseFragment() {
 
     override fun init() {
         super.init()
-//        var observable = Observable.create<String>({ e ->
-//            (e.onNext("create observable"))
-//        })
-//        var observer = Observer(object : Observer<String> {
-//            override fun onCompleted() {
-//
-//            }
-//
-//            override fun onNext(t: String?) {
-//
-//            }
-//
-//            override fun onError(e: Throwable?) {
-//
-//            }
-//        })
         Observable.create<String>({ subscriber -> subscriber.onNext("info") })
                 .subscribe(object : Observer<String> {
                     override fun onCompleted() {
@@ -47,6 +32,8 @@ class RxJavaFragment : BaseFragment() {
                         LogUtils.showErrLog("info----->" + s)
                     }
                 })
+
+        Observable.just("this", "is", "Observable").subscribe({ t -> LogUtils.showErrLog(t) })
     }
 
     override fun setTitle() {

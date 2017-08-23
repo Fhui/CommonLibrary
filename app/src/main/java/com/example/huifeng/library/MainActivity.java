@@ -20,14 +20,12 @@ import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;
 import com.example.huifeng.library.fragment.LoginFragment;
 import com.example.huifeng.library.fragment.SelectPicFragment;
-import com.example.huifeng.library.utils.LogUtils;
 import com.zhihu.matisse.Matisse;
 
 import java.util.Stack;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import it.sephiroth.android.library.easing.Linear;
 
 
 /**
@@ -73,7 +71,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void setTitleText(String title) {
-        LogUtils.showErrLog("stack ----- > " + mBackStack.size());
         mTitleText.setText(title);
     }
 
@@ -81,7 +78,7 @@ public class MainActivity extends BaseActivity {
     /**
      * fragment 入栈
      *
-     * @param fragment
+     * @param fragment 入栈的fragment
      */
     public void pushFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
@@ -150,18 +147,14 @@ public class MainActivity extends BaseActivity {
      */
     public static boolean isFullScreen(Activity activity) {
         int flag = activity.getWindow().getAttributes().flags;
-        if ((flag & WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                == WindowManager.LayoutParams.FLAG_FULLSCREEN) {
-            return true;
-        } else {
-            return false;
-        }
+        return (flag & WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                == WindowManager.LayoutParams.FLAG_FULLSCREEN;
     }
 
     /**
      * 查看栈顶的fragment
      *
-     * @return
+     * @return 返回栈顶的fragment
      */
     public Fragment peekFragment() {
         if (mBackStack.size() > 0) {
