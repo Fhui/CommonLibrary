@@ -4,8 +4,7 @@ import android.net.Uri
 import com.example.huifeng.library.R
 import com.example.huifeng.library.core.BaseFragment
 import android.content.ContentResolver
-import android.view.WindowManager
-import com.example.huifeng.library.MainActivity
+import com.example.huifeng.library.activity.MainActivity
 import com.example.huifeng.library.custom_widget.CustomVideoView
 
 

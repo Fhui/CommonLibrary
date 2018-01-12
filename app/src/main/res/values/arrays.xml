@@ -20,6 +20,7 @@
         <item>EasyRecycleView</item>
         <item>MarginDesign</item>
         <item>通知</item>
+        <item>自定义title</item>
         <item>+第三方库, 设计模式</item>
         <item>RXJava</item>
         <item>MVP</item>
@@ -45,6 +46,7 @@
         <item>com.example.huifeng.library.fragment.EasyRecycleViewFragment</item>
         <item>com.example.huifeng.library.fragment.MarginDesignFragment</item>
         <item>com.example.huifeng.library.fragment.NotificationFragment</item>
+        <item>com.example.huifeng.library.fragment.CustomTitleFragment</item>
         <item>com.example.huifeng.library.fragment.RxJavaFragment</item>
         <item>com.example.huifeng.library.fragment.MVPFragment</item>
         <item>com.example.huifeng.library.fragment.MVVMFragment</item>

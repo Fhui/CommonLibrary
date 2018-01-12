@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.huifeng.library.MainActivity;
+import com.example.huifeng.library.activity.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.ContactAdapter;
 import com.example.huifeng.library.bean.ContactsBean;

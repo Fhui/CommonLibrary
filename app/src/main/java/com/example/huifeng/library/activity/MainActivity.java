@@ -1,4 +1,4 @@
-package com.example.huifeng.library;
+package com.example.huifeng.library.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huifeng.library.R;
 import com.example.huifeng.library.core.BaseActivity;
 import com.example.huifeng.library.custom_widget.DetailsTransition;
 import com.example.huifeng.library.fragment.DeskTopFragment;

@@ -23,11 +23,51 @@
     </declare-styleable>
 
     <declare-styleable name="HorizontalProgressView">
-        <attr format="enum" name="progressTextPosition">
+        <attr name="progressTextPosition" format="enum">
             <enum name="RIGHT_TOP" value="1"/>
             <enum name="FOLLOW" value="-1"/>
             <enum name="RIGHT" value="0"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="StateButton">
+        <!--text color-->
+        <attr name="normalTextColor" format="color|reference"/>
+        <attr name="pressedTextColor" format="color|reference"/>
+        <attr name="unableTextColor" format="color|reference"/>
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="strokeDashWidth" format="dimension|reference"/>
+        <attr name="strokeDashGap" format="dimension|reference"/>
+        <attr name="normalStrokeWidth" format="dimension|reference"/>
+        <attr name="pressedStrokeWidth" format="dimension|reference"/>
+        <attr name="unableStrokeWidth" format="dimension|reference"/>
+        <attr name="normalStrokeColor" format="color|reference"/>
+        <attr name="pressedStrokeColor" format="color|reference"/>
+        <attr name="unableStrokeColor" format="color|reference"/>
+
+        <!--background color-->
+        <attr name="normalBackgroundColor" format="color|reference"/>
+        <attr name="pressedBackgroundColor" format="color|reference"/>
+        <attr name="unableBackgroundColor" format="color|reference"/>
+
+        <!--background radius-->
+        <attr name="radiusButton" format="dimension|reference"/>
+        <attr name="round" format="boolean|reference"/>
+
+        <!--animation duration-->
+        <attr name="animationDuration" format="integer|reference"/>
+
+    </declare-styleable>
+
+    <!--<declare-styleable name="titleBar">-->
+        <!--<attr name="leftRes" format="reference"/>-->
+        <!--<attr name="rightRes" format="reference"/>-->
+        <!--<attr name="titleText" format="String"/>-->
+        <!--<attr name="titleTextColor" format="color|reference"/>-->
+        <!--<attr name="titleTextSize" format="dimension|reference"/>-->
+        <!--<attr name="isShowLeft" format="boolean|reference"/>-->
+        <!--<attr name="isShowRight" format="boolean|reference"/>-->
+        <!--<attr name="isShowText" format="boolean|reference"/>-->
+    <!--</declare-styleable>-->
 
 </resources>

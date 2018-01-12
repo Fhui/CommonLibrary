@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.example.huifeng.library.MainActivity
+import com.example.huifeng.library.activity.MainActivity
 import com.example.huifeng.library.R
 import com.example.huifeng.library.bean.AllContentBean
 import com.example.huifeng.library.core.BaseFragment

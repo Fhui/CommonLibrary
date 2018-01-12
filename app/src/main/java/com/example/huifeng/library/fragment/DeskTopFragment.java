@@ -5,7 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.huifeng.library.MainActivity;
+import com.example.huifeng.library.activity.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.MainAdapter;
 import com.example.huifeng.library.bean.LibraryBean;
@@ -49,14 +49,34 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
 
     public void initData() {
         int temp = 0;
-        String[] fragmentArray = getResources().getStringArray(R.array.fragment_name);
+        List<String> fragmentList = new ArrayList<>();
         String[] stringArray = getResources().getStringArray(R.array.recycle_list);
+        fragmentList.add(RetrofitFragment.class.getName());
+        fragmentList.add(OkHttpFragment.class.getName());
+        fragmentList.add(NoHttpFragment.class.getName());
+        fragmentList.add(AdderSubtractorFragment.class.getName());
+        fragmentList.add(LoginFragment.class.getName());
+        fragmentList.add(SelectPicFragment.class.getName());
+        fragmentList.add(SharedElementsFragment.class.getName());
+        fragmentList.add(ContactsFragment.class.getName());
+        fragmentList.add(ProgressFragment.class.getName());
+        fragmentList.add(PopupWindowFragment.class.getName());
+        fragmentList.add(FingerprintFragment.class.getName());
+        fragmentList.add(DialogFragment.class.getName());
+        fragmentList.add(EasyRecycleViewFragment.class.getName());
+        fragmentList.add(MarginDesignFragment.class.getName());
+        fragmentList.add(NotificationFragment.class.getName());
+        fragmentList.add(CustomTitleFragment.class.getName());
+        fragmentList.add(RxJavaFragment.class.getName());
+        fragmentList.add(MVPFragment.class.getName());
+        fragmentList.add(MVVMFragment.class.getName());
+        fragmentList.add(KotlinFragment.class.getName());
         for (String s : stringArray) {
             if (s.startsWith("+")) {
                 mList.add(new LibraryBean(null, s));
             } else {
-                if (fragmentArray.length - 1 >= temp) {
-                    mList.add(new LibraryBean(Fragment.instantiate(mContext, fragmentArray[temp]), s));
+                if (fragmentList.size() - 1 >= temp) {
+                    mList.add(new LibraryBean(Fragment.instantiate(mContext, fragmentList.get(temp)), s));
                     temp++;
                 } else {
                     mList.add(new LibraryBean(null, s));

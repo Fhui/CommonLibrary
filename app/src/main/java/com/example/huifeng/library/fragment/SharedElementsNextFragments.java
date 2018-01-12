@@ -1,7 +1,7 @@
 package com.example.huifeng.library.fragment;
 
 
-import com.example.huifeng.library.MainActivity;
+import com.example.huifeng.library.activity.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.core.BaseFragment;
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_color_c5_ffffff"
+    android:clickable="true">
+
+    <com.example.huifeng.library.custom_widget.StateButton
+        android:id="@+id/btn_state"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        app:normalBackgroundColor="@color/common_color_c1_0971ce"
+        app:normalTextColor="@color/common_color_c5_ffffff"
+        app:pressedBackgroundColor="@color/common_color_c5_ffffff"
+        android:layout_centerVertical="true"
+        android:padding="0dp"
+        android:text="自定义title"
+        app:pressedTextColor="@color/common_color_c1_0971ce"
+        app:round="true"/>
+
+</RelativeLayout>

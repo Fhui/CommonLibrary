@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.huifeng.library.MainActivity;
+import com.example.huifeng.library.activity.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.core.BaseFragment;
 
