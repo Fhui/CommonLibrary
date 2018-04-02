@@ -18,7 +18,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.huifeng.library.activity.MainActivity;
 import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.ContactAdapter;
 import com.example.huifeng.library.bean.ContactsBean;
@@ -36,11 +35,13 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * 联系人Fragment
- * Created by ShineF on 2017/7/10 0010.
+ *  Base联系人Fragment
+ * Created by hui.feng on 2018/1/17.
  */
 
-public class ContactsFragment extends BaseFragment implements PermissionUtils.PermissionCallbacks, DialogInterface.OnClickListener, SectionBar.OnTouchLetterChangeListenner, AbsListView.OnScrollListener, TextWatcher, View.OnClickListener {
+public class CommonContractsFragment extends BaseFragment implements AbsListView.OnScrollListener,
+        View.OnClickListener, TextWatcher, SectionBar.OnTouchLetterChangeListenner,  PermissionUtils.PermissionCallbacks
+        , DialogInterface.OnClickListener{
 
     @BindView(R.id.lv_contacts)
     ListView mLvContacts;
@@ -69,7 +70,7 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
                     mDataList = filledData(mTempList);
                     mAdapter = new ContactAdapter(mDataList, mContext);
                     mLvContacts.setAdapter(mAdapter);
-                    mSectionBar.setOnTouchLetterChangeListenner(ContactsFragment.this);
+                    mSectionBar.setOnTouchLetterChangeListenner(CommonContractsFragment.this);
                     dismissProgressDialog();
                     break;
                 case CHANGE_OK:
@@ -95,6 +96,10 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     });
 
     @Override
+    public void setTitle() {
+
+    }
+
     public int setContentLayout() {
         return R.layout.fragment_contacts;
     }
@@ -112,18 +117,16 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     }
 
     public void initData() {
-        ThreadUtils.newThread(() -> {
-            List<ContactsBean> mDataList = ContactsUtils.getSystemContacts(mContext);
-            Message msg = Message.obtain();
-            msg.what = QUARY_CONTACTS_OK;
-            msg.obj = mDataList;
-            mHandler.sendMessage(msg);
+        ThreadUtils.newThread(new Runnable() {
+            @Override
+            public void run() {
+                List<ContactsBean> mDataList = ContactsUtils.getSystemContacts(mContext);
+                Message msg = Message.obtain();
+                msg.what = QUARY_CONTACTS_OK;
+                msg.obj = mDataList;
+                mHandler.sendMessage(msg);
+            }
         });
-    }
-
-    @Override
-    public void setTitle() {
-        ((MainActivity) mContext).setTitleText("Constant");
     }
 
     private List<ContactsBean> filledData(List<ContactsBean> beanList) {
@@ -173,24 +176,6 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
         mHandler.sendMessage(msg);
     }
 
-    @Override
-    public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (scrollState == SCROLL_STATE_TOUCH_SCROLL && TextUtils.isEmpty(mEditText.getText().toString())) {
-            mEditText.clearFocus();
-            hideSoftKeyBoard(mEditText);
-            mRlSearch.setVisibility(View.VISIBLE);
-            mRlInput.setVisibility(View.GONE);
-        } else {
-            mEditText.clearFocus();
-            hideSoftKeyBoard(mEditText);
-        }
-    }
-
-    @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-    }
-
     public void hideSoftKeyBoard(EditText editText) {
         InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm.isActive()) {
@@ -205,17 +190,45 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     }
 
     @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+        if (scrollState == SCROLL_STATE_TOUCH_SCROLL && TextUtils.isEmpty(mEditText.getText().toString())) {
+            mEditText.clearFocus();
+            hideSoftKeyBoard(mEditText);
+            mRlSearch.setVisibility(View.VISIBLE);
+            mRlInput.setVisibility(View.GONE);
+        } else {
+            mEditText.clearFocus();
+            hideSoftKeyBoard(mEditText);
+        }
+    }
+
+    @Override
+    public void onScroll(AbsListView absListView, int i, int i1, int i2) {
 
     }
 
     @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-        filterData(s.toString());
+    public void onClick(View view) {
+        if (view.getId() == R.id.rel_serach) {
+            mRlInput.setVisibility(View.VISIBLE);
+            mRlSearch.setVisibility(View.GONE);
+            showSoftKeyBoard(mEditText);
+            mEditText.requestFocus();
+        }
     }
 
     @Override
-    public void afterTextChanged(Editable s) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        filterData(charSequence.toString());
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
 
     }
 
@@ -252,19 +265,8 @@ public class ContactsFragment extends BaseFragment implements PermissionUtils.Pe
     }
 
     @Override
-    public void onClick(DialogInterface dialog, int which) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         popFragment();
         Toast.makeText(mContext, "请去设置页面开启权限", Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.rel_serach) {
-            mRlInput.setVisibility(View.VISIBLE);
-            mRlSearch.setVisibility(View.GONE);
-            showSoftKeyBoard(mEditText);
-            mEditText.requestFocus();
-        }
     }
 }

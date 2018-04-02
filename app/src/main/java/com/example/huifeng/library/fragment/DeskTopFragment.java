@@ -10,6 +10,7 @@ import com.example.huifeng.library.R;
 import com.example.huifeng.library.adapter.MainAdapter;
 import com.example.huifeng.library.bean.LibraryBean;
 import com.example.huifeng.library.core.BaseFragment;
+import com.example.huifeng.library.mvp.view.MVPFragment;
 import com.example.huifeng.library.utils.SpaceItemDecoration;
 
 import java.util.ArrayList;
@@ -58,7 +59,8 @@ public class DeskTopFragment extends BaseFragment implements MainAdapter.ItemCli
         fragmentList.add(LoginFragment.class.getName());
         fragmentList.add(SelectPicFragment.class.getName());
         fragmentList.add(SharedElementsFragment.class.getName());
-        fragmentList.add(ContactsFragment.class.getName());
+//        fragmentList.add(ContactsFragment.class.getName());
+        fragmentList.add(ChildContractsFragment.class.getName());
         fragmentList.add(ProgressFragment.class.getName());
         fragmentList.add(PopupWindowFragment.class.getName());
         fragmentList.add(FingerprintFragment.class.getName());

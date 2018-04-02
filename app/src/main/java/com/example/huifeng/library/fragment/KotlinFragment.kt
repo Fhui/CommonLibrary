@@ -111,7 +111,7 @@ class KotlinFragment : BaseFragment() {
         loadData(UP_DATA)
     }
 
-    fun loadData(what: Int): Unit {
+    fun loadData(what: Int) {
         ApiManager.getApiManager().initApiService(Constant.GANK_BASE).loadAllData(mItem, mPager)
                 .subscribeOn(Schedulers.io())
                 .subscribe({ success ->
